@@ -22,8 +22,46 @@ We are using PDF.js a JavaScript library to parse PDF files using the HTML5 Canv
 
 ## How to track
 
-Get [the JavaScript tracking snippet](https://developers.google.com/analytics/devguides/collection/analyticsjs/) and git clone [PDF.js](https://github.com/mozilla/pdf.js/):
+1. Get Git:<br/>
+https://git-scm.com/downloads
 
+2. Get the JavaScript tracking snippet:<br/>
+https://developers.google.com/analytics/devguides/collection/analyticsjs/
+
+3. Get [PDF.js](https://github.com/mozilla/pdf.js/):
+```bash
     $ git clone git://github.com/mozilla/pdf.js.git
     $ cd pdf.js
+    # following pdf.js install instructions https://github.com/mozilla/pdf.js#getting-the-code:
+    $ npm install -g gulp-cli
+    $ npm install
+    $ gulp server
+    # open http://localhost:8888/web/viewer.html
+```
 
+4. Add pdf-analytics.js:
+  - add pdf-analytics.js to pdf.js/web
+  - add your JavaScript tracking snippet to pdf.js/viewer.html (right before the closing body tag):
+
+  ```html
+    <script src="pdf-analytics.js"></script>
+      <script>
+        var trackInteraction = function(cat, url) {
+         ga('send', 'event', cat, 'scroll', url, {
+          'transport': 'beacon'
+         });
+        }
+     </script>
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'YOUR-TRACKING-ID', 'auto');
+       ga('send', 'pageview');
+
+     </script>
+   </body>
+  ```
+  Done
