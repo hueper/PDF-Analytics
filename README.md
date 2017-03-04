@@ -1,18 +1,18 @@
-# PDF-Analytics
+## PDF-Analytics
 Tracking user interaction within a PDF
 
 We are using PDF.js a JavaScript library to parse PDF files using the HTML5 Canvas. The browser output is HTML, not a PDF. That makes tracking easy as cake.
 
-## Requirements
+#### Requirements
 * [Git](https://git-scm.com/downloads)
 * [PDF.js](https://github.com/mozilla/pdf.js/) by mozilla
 * [Google Analytics](https://analytics.google.com/)
 
-## Interactions
+#### Interactions
 
-#### pagechange (user scrolls to another page)
+###### pagechange (user scrolls to another page)
 
-#### click
+###### click
 * download
 * print
 * zoomIn
@@ -20,7 +20,7 @@ We are using PDF.js a JavaScript library to parse PDF files using the HTML5 Canv
 * presentationMode
 * viewFind (user searches)
 
-## How to track
+#### How to track
 
 1. Get Git:<br/>
 https://git-scm.com/downloads
@@ -65,3 +65,9 @@ https://developers.google.com/analytics/devguides/collection/analyticsjs/
    </body>
   ```
   Done
+
+#### Contributions
+Are very welcome
+
+#### License
+MIT
